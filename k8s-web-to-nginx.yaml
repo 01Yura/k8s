@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: k8s-web-to-nginx
 spec:
+  replicas: 10
   selector:
     matchLabels:
       app: k8s-web-to-nginx
@@ -13,7 +14,7 @@ spec:
     spec:
       containers:
       - name: k8s-web-to-nginx
-        image: 01yura/k8s-web-to-nginx-ru
+        image: 01yura/k8s-web-to-nginx-ru:3.0.0
         resources:
           limits:
             memory: "128Mi"
