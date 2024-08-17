@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my_app
+  name: k8s-web-to-nginx
 spec:
   type: NodePort
   selector:
-    app: my_app
+    app: k8s-web-to-nginx
   ports:
-  - port: 3000   # внутренний порт пода, на котором работает приложение контейнера
-    targetPort: 3001   # порт, на который будет направлен трафик внутри пода
-    NodePort: 3333   # внешний порт воркер ноды, доступны из интернета. С него трафик пойдет на targetPort
+    - protocol: TCP
+      port: 3000   # внутренний порт пода, на котором работает приложение контейнера
+      targetPort: 3000   # порт, на который будет направлен трафик внутри пода
+      nodePort: 32333   # внешний порт воркер ноды, доступны из интернета. С него трафик пойдет на targetPort

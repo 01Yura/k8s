@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my_app
+  name: k8s-web-to-nginx
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
-      app: my_app
+      app: k8s-web-to-nginx
   template:
     metadata:
       labels:
-        app: my_app
+        app: k8s-web-to-nginx
     spec:
       containers:
-      - name: my_app
+      - name: k8s-web-to-nginx
         image: 01yura/k8s-web-to-nginx-ru:3.0.0
         resources:
           limits:
