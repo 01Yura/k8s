@@ -1,0 +1,3 @@
+image: 01yura/my-website:3.0.0
+replicaCount: 2
+port: 32333
